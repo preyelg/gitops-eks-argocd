@@ -31,7 +31,6 @@ module "vpc" {
   single_nat_gateway     = true
 }
 
-/*
 resource "helm_release" "argocd" {
   name             = "argocd"
   namespace        = "argocd"
@@ -48,4 +47,3 @@ resource "helm_release" "argocd" {
   # Ensure EKS is fully ready before deploying Helm
   depends_on = [module.eks]
 }
-*/
