@@ -3,11 +3,11 @@ provider "aws" {
 }
 
 provider "kubernetes" {
-  host                   = aws_eks_cluster.gitops.endpoint
-  cluster_ca_certificate = base64decode(aws_eks_cluster.gitops.certificate_authority[0].data)
+  host                   = module.eks.cluster_endpoint
+  cluster_ca_certificate = base64decode(module.eks.cluster_certificate_authority_data)
   token                  = data.aws_eks_cluster_auth.gitops.token
 }
 
 data "aws_eks_cluster_auth" "gitops" {
-  name = aws_eks_cluster.gitops.name
+  name = module.eks.cluster_name
 }
