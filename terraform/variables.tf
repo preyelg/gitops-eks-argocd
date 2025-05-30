@@ -1,7 +1,9 @@
 variable "region" {
   default = "us-east-2"
 }
+
 variable "key_pair_name" {
-description = "linux"
-type = string
+  description = "EC2 key pair name"
+  type        = string
+  default     = "linux"
 }
